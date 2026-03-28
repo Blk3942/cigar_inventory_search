@@ -1,0 +1,140 @@
+{
+  "sites": [
+    {
+      "id": "cigarviu",
+      "display_name": "Cigar VIU",
+      "base_url": "https://cigarviu.com",
+      "adapter": "shopify",
+      "currency": "CHF",
+      "only_cigar_related": true,
+      "enabled": true,
+      "max_pages": null
+    },
+    {
+      "id": "lcdh-bonn",
+      "display_name": "LCDH Bonn",
+      "base_url": "https://www.lcdh-bonn.de",
+      "adapter": "woocommerce",
+      "currency": "EUR",
+      "only_cigar_related": true,
+      "enabled": true,
+      "max_pages": 40
+    },
+    {
+      "id": "tecon-gmbh",
+      "display_name": "Tecon GmbH",
+      "base_url": "https://www.tecon-gmbh.de",
+      "adapter": "oscommerce",
+      "currency": "EUR",
+      "only_cigar_related": true,
+      "enabled": true,
+      "max_pages": 8
+    },
+    {
+      "id": "tabak-traeber",
+      "display_name": "Tabak Träber",
+      "base_url": "https://www.tabak-traeber.de",
+      "adapter": "xtcommerce",
+      "currency": "EUR",
+      "only_cigar_related": true,
+      "enabled": true,
+      "max_pages": 10
+    },
+    {
+      "id": "falkum",
+      "display_name": "Falkum",
+      "base_url": "https://www.falkum.de",
+      "adapter": "magento2",
+      "currency": "EUR",
+      "only_cigar_related": false,
+      "enabled": true,
+      "max_pages": 18,
+      "adapter_options": {
+        "page_size": 48
+      }
+    },
+    {
+      "id": "selected-cigars",
+      "display_name": "Selected Cigars",
+      "base_url": "https://selected-cigars.com",
+      "adapter": "magento2",
+      "currency": "EUR",
+      "only_cigar_related": false,
+      "enabled": true,
+      "max_pages": 18,
+      "adapter_options": {
+        "page_size": 48
+      }
+    },
+    {
+      "id": "thecigarsmoker",
+      "display_name": "The Cigar Smoker (LCDH Hamburg)",
+      "base_url": "https://www.thecigarsmoker.com",
+      "adapter": "custom",
+      "currency": "EUR",
+      "only_cigar_related": true,
+      "enabled": true,
+      "max_pages": null
+    },
+    {
+      "id": "cigarmust",
+      "display_name": "Cigar Must",
+      "base_url": "https://cigarmust.com",
+      "adapter": "prestashop",
+      "currency": "CHF",
+      "only_cigar_related": true,
+      "enabled": true,
+      "max_pages": null,
+      "adapter_options": {
+        "max_scrape_products": 260
+      }
+    },
+    {
+      "id": "la-casa-del-habano-nyon",
+      "display_name": "La Casa del Habano Nyon",
+      "base_url": "https://la-casa-del-habano-nyon.com",
+      "adapter": "shopify",
+      "currency": "CHF",
+      "only_cigar_related": true,
+      "enabled": true,
+      "max_pages": null
+    },
+    {
+      "id": "siglomundo",
+      "display_name": "Siglo Mundo",
+      "base_url": "https://siglomundo.ch",
+      "adapter": "shopify",
+      "currency": "CHF",
+      "only_cigar_related": true,
+      "enabled": true,
+      "max_pages": null
+    }
+  ],
+  "filters": {
+    "brands": [],
+    "product_keywords": [],
+    "product_handles": [],
+    "price_cny_pre_tax_min": null,
+    "price_cny_pre_tax_max": 8000
+  },
+  "brand_hints": [
+    "Cohiba",
+    "Montecristo",
+    "Partagas",
+    "Romeo y Julieta",
+    "Davidoff",
+    "H. Upmann",
+    "Hoyo",
+    "Bolivar",
+    "Trinidad",
+    "Punch",
+    "Quai d'Orsay",
+    "Ramón Allones",
+    "Ramon Allones",
+    "Oliva",
+    "Rocky Patel",
+    "Plasencia"
+  ],
+  "tariff_rate": 0.5,
+  "include_unavailable": false
+}
