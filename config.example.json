@@ -109,6 +109,17 @@
       "enabled": true,
       "max_pages": null
     }
+    ,
+    {
+      "id": "70cigars",
+      "display_name": "70 Cigars",
+      "base_url": "https://70cigars.com/",
+      "adapter": "shopify",
+      "currency": "USD",
+      "only_cigar_related": true,
+      "enabled": true,
+      "max_pages": null
+    }
   ],
   "filters": {
     "brands": [],

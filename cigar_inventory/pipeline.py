@@ -173,25 +173,70 @@ def collect_rows(cfg: AppConfig) -> list[ExportRow]:
 CSV_FIELDS = list(ExportRow.__dataclass_fields__.keys())
 
 
-def write_csv(path: Path, rows: list[ExportRow]) -> None:
+def write_csv(
+    path: Path,
+    rows: list[ExportRow],
+    *,
+    compare_labels: list[str] | None = None,
+) -> None:
+    fieldnames = CSV_FIELDS
+    if compare_labels is not None:
+        if len(compare_labels) != len(rows):
+            raise ValueError("compare_labels 长度必须与 rows 一致")
+        fieldnames = CSV_FIELDS + ["对比"]
     with path.open("w", encoding="utf-8-sig", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=CSV_FIELDS)
+        w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
-        for r in rows:
-            w.writerow(asdict(r))
+        for i, r in enumerate(rows):
+            d = asdict(r)
+            if compare_labels is not None:
+                d["对比"] = compare_labels[i]
+            w.writerow(d)
 
 
-def print_csv(rows: list[ExportRow]) -> None:
-    w = csv.DictWriter(sys.stdout, fieldnames=CSV_FIELDS)
+def print_csv(
+    rows: list[ExportRow],
+    *,
+    compare_labels: list[str] | None = None,
+) -> None:
+    fieldnames = CSV_FIELDS
+    if compare_labels is not None:
+        if len(compare_labels) != len(rows):
+            raise ValueError("compare_labels 长度必须与 rows 一致")
+        fieldnames = CSV_FIELDS + ["对比"]
+    w = csv.DictWriter(sys.stdout, fieldnames=fieldnames)
     w.writeheader()
-    for r in rows:
-        w.writerow(asdict(r))
+    for i, r in enumerate(rows):
+        d = asdict(r)
+        if compare_labels is not None:
+            d["对比"] = compare_labels[i]
+        w.writerow(d)
 
 
-def write_json(path: Path, rows: list[ExportRow]) -> None:
-    data = [asdict(r) for r in rows]
+def write_json(
+    path: Path,
+    rows: list[ExportRow],
+    *,
+    compare_labels: list[str] | None = None,
+) -> None:
+    data: list[dict[str, Any]] = []
+    for i, r in enumerate(rows):
+        d = asdict(r)
+        if compare_labels is not None:
+            d["对比"] = compare_labels[i]
+        data.append(d)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def print_json(rows: list[ExportRow]) -> None:
-    print(json.dumps([asdict(r) for r in rows], ensure_ascii=False, indent=2))
+def print_json(
+    rows: list[ExportRow],
+    *,
+    compare_labels: list[str] | None = None,
+) -> None:
+    data: list[dict[str, Any]] = []
+    for i, r in enumerate(rows):
+        d = asdict(r)
+        if compare_labels is not None:
+            d["对比"] = compare_labels[i]
+        data.append(d)
+    print(json.dumps(data, ensure_ascii=False, indent=2))
